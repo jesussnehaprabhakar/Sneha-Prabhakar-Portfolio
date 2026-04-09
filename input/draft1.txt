@@ -1,0 +1,2 @@
+Indentation denotes the body of the loop, so the next line following the line with loop keyword should have an indentation.
+Indent, loops, keywords are useful in the body of the loop
