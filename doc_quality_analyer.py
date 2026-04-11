@@ -1,4 +1,5 @@
 import spacy
+import nltk
 import pandas as pd
 nlp=spacy.load("en_core_web_sm")
 
@@ -28,3 +29,11 @@ for token in doc:
         words.append(token.text) 
         lemmas.append(token.lemma_)
 print("\nOriginal words and their lemmas:\n",list(zip(words,lemmas)))
+
+# Remove Stopwords from content
+doc=nlp(text)
+filtered_words=[]
+for token in doc:
+    if not token.is_stop: #considers strings excluding stop words
+        filtered_words.append(token.text)
+print("\nFiltered content:\n"," ".join(filtered_words))
