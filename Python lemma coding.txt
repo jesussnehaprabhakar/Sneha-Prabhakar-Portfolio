@@ -1,0 +1,30 @@
+import spacy
+import pandas as pd
+nlp=spacy.load("en_core_web_sm")
+
+# Read contents from file in local folder
+with open ("input/draft1.txt","r") as file:
+    text=file.read()
+print("Original text:\n",text)
+
+# Convert content to Lowercase
+text=text.lower()
+#print("\nLowercase text:\n",text)
+
+# Remove Punctuations from content
+temp_text=""
+for x in text:
+    if x.isalnum() or x.isspace(): # Removes everything except alphabets, numbers & spaces
+        temp_text=temp_text+x  # Gather the selected texts inside temp_text one by one
+text=temp_text
+print("\nLowercase text without Punctuation:\n",text)
+
+# Identify Lemmas
+doc=nlp(text) #process text and creates something like a list in doc
+words=[] #extract words
+lemmas=[] #extract lemmas
+for token in doc:  # token object denotes each word in the doc
+     if token.text.isalnum():# alnum includes alphabets, numbers & combo of both(ex, KPI9)
+        words.append(token.text) #add the current token from text to words[] 
+        lemmas.append(token.lemma_) #lemma_ - baseform of the word
+print("\nOriginal words and their lemmas:\n",list(zip(words,lemmas)))
