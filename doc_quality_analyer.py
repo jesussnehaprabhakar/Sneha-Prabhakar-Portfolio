@@ -1,5 +1,6 @@
 import spacy
 import nltk
+import pandas as pd
 nlp=spacy.load("en_core_web_sm")
 
 # Read contents from file in local folder - spaCy
@@ -40,6 +41,7 @@ print("\nFiltered content:\n"," ".join(filtered_words))
 
 #Measure Frequency of Filtered words- Pandas
 lemma_dict={} #create an empty dictionary
+table=[] #Display output as Table
 for term, lemma in zip(filtered_words,filtered_lemmas):
     if lemma not in lemma_dict:
         lemma_dict[lemma]=[term]
@@ -50,8 +52,11 @@ for lemma in lemma_dict:
     frequency=len(variants)
     unique_variants=list(set(variants))
     dominant_variant=max(set(variants),key=variants.count)
-    print("Lemma:",lemma)
-    print("Frequency:",frequency)
-    print("Variants:",variants)
-    print("Unique variants:",unique_variants)
-    print("Frequently appearing variant:",dominant_variant)
+    # print("Lemma:",lemma)
+    # print("Frequency:",frequency)
+    # print("Variants:",variants)
+    # print("Unique variants:",unique_variants)
+    # print("Frequently appearing variant:",dominant_variant)
+    table.append([lemma,frequency,variants,unique_variants,dominant_variant])
+df=pd.DataFrame(table,columns=["Lemma","Frequency","Variants","Unique Variants","Dominant Variant"])
+print(df)
