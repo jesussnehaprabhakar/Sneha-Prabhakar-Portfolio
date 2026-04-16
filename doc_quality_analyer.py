@@ -60,3 +60,15 @@ for lemma in lemma_dict:
     table.append([lemma,frequency,variants,unique_variants,dominant_variant])
 df=pd.DataFrame(table,columns=["Lemma","Frequency","Variants","Unique Variants","Dominant Variant"])
 print(df)
+
+#Identify frequently used Phrases
+#Unigram
+print("\nUnigram\n")
+unigram_dict={}
+for unigram in filtered_words:
+    if unigram not in unigram_dict:
+        unigram_dict[unigram]=1
+    else:
+        unigram_dict[unigram]+=1
+for unigram in unigram_dict:
+    print(unigram,":",unigram_dict[unigram])
