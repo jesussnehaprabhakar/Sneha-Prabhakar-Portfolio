@@ -77,8 +77,8 @@ for unigram in unigram_dict:
 
 #Bigram
 pairs=[] #create list of pairs
-print("\nNumber of filtered words: ",len(filtered_words))
-print("Number of possible pairs: ",len(filtered_words)-1)
+print("\nNumber of filtered words:",len(filtered_words))
+print("Number of possible pairs:",len(filtered_words)-1)
 for i in range(len(filtered_words)-1):
     pair=filtered_words[i]+" "+filtered_words[i+1]
     pairs.append(pair)
