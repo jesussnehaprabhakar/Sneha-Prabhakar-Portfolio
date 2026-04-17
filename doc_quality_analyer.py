@@ -76,21 +76,41 @@ for unigram in unigram_dict:
     number+=1
 
 #Bigram
-pairs=[] #create list of pairs
+print("\nBigram")
+bigram=[] #create list of pairs
 print("\nNumber of filtered words:",len(filtered_words))
 print("Number of possible pairs:",len(filtered_words)-1)
 for i in range(len(filtered_words)-1):
     pair=filtered_words[i]+" "+filtered_words[i+1]
-    pairs.append(pair)
-    unique_pairs=list(set(pairs))
+    bigram.append(pair)
+    unique_pairs=list(set(bigram))
 bigram_dict={}
-for pair in pairs:
+for pair in bigram:
     if pair not in bigram_dict:
         bigram_dict[pair]=1
     else:
         bigram_dict[pair]+=1
-print("\nBigram\n")
 number=1
 for pair in bigram_dict:
     print(number,pair,":",bigram_dict[pair])
+    number+=1
+
+#Trigram
+print("\nTrigram")
+trigram=[] #create list of 3-words phrase
+print("\nNumber of filtered words:",len(filtered_words))
+print("Number of possible triplets:",len(filtered_words)-2)
+for i in range(len(filtered_words)-4):
+    triplet=filtered_words[i]+" "+filtered_words[i+1]+" "+filtered_words[i+2]
+    trigram.append(triplet)
+    unique_triplets=list(set(triplet))
+trigram_dict={}
+for triplet in trigram:
+    if triplet not in trigram_dict:
+        trigram_dict[triplet]=1
+    else:
+        trigram_dict[triplet]+=1
+number=1
+for triplet in trigram_dict:
+    print(number,triplet,":",trigram_dict[triplet])
     number+=1
