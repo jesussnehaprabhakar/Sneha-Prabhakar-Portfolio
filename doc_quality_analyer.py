@@ -6,11 +6,11 @@ nlp=spacy.load("en_core_web_sm")
 # Read contents from file in local folder - spaCy
 with open ("input/draft1.txt","r") as file:
     text=file.read()
-print("Original text:\n",text)
+#print("Original text:\n",text)
 
 # Convert content to Lowercase
 text=text.lower()
-print("\nLowercase text:\n",text)
+#print("\nLowercase text:\n",text)
 
 # Remove Punctuations and Numbers from content- spaCy
 temp_text=""
@@ -18,7 +18,7 @@ for x in text:
     if x.isalpha() or x.isspace(): #alnum includes alphabets, numbers & combo of both(ex, KPI9)
         temp_text=temp_text+x
 text=temp_text
-print("\nContent without Punctuation & Numbers:\n",text)
+#print("\nContent without Punctuation & Numbers:\n",text)
 
 # Identify Lemmas- NLP spaCy
 doc=nlp(text)
@@ -28,7 +28,7 @@ for token in doc:
     if token.text.isalnum():
         words.append(token.text) 
         lemmas.append(token.lemma_)
-print("\nOriginal words and their lemmas:\n",list(zip(words,lemmas)))
+#print("\nOriginal words and their lemmas:\n",list(zip(words,lemmas)))
 
 # Remove Stopwords from content- NLP NLTK
 filtered_words=[]
@@ -37,7 +37,7 @@ for item in doc:
     if not item.is_stop and item.text.isalnum(): #considers strings excluding stop words
         filtered_words.append(item.text)
         filtered_lemmas.append(item.lemma_)
-print("\nFiltered content:\n"," ".join(filtered_words))
+#print("\nFiltered content:\n"," ".join(filtered_words))
 
 #Measure Frequency of Filtered words- Pandas
 lemma_dict={} #create an empty dictionary
@@ -52,14 +52,11 @@ for lemma in lemma_dict:
     frequency=len(variants)
     unique_variants=list(set(variants))
     dominant_variant=max(set(variants),key=variants.count)
-    # print("Lemma:",lemma)
-    # print("Frequency:",frequency)
-    # print("Variants:",variants)
-    # print("Unique variants:",unique_variants)
-    # print("Frequently appearing variant:",dominant_variant)
-    table.append([lemma,frequency,variants,unique_variants,dominant_variant])
-df=pd.DataFrame(table,columns=["Lemma","Frequency","Variants","Unique Variants","Dominant Variant"])
-print(df)
+    table.append([lemma,frequency,unique_variants,dominant_variant])
+df=pd.DataFrame(table,columns=["Lemma","Frequency","Unique Variants","Dominant Variant"])
+df_filtered=df[df["Frequency"]>1].reset_index(drop=True)
+df_filtered.index=df_filtered.index+1
+print(df_filtered)
 
 #Identify frequently used Phrases
 #Unigram
@@ -72,8 +69,9 @@ for unigram in filtered_words:
         unigram_dict[unigram]+=1
 number=1
 for unigram in unigram_dict:
-    print(number,unigram,":",unigram_dict[unigram])
-    number+=1
+    if unigram_dict[unigram]>1:
+        print(number," ",unigram,":",unigram_dict[unigram])
+        number+=1
 
 #Bigram
 print("\nBigram")
@@ -92,8 +90,9 @@ for pair in bigram:
         bigram_dict[pair]+=1
 number=1
 for pair in bigram_dict:
-    print(number,pair,":",bigram_dict[pair])
-    number+=1
+    if bigram_dict[pair]>1:
+        print(number," ",pair,":",bigram_dict[pair])
+        number+=1
 
 #Trigram
 print("\nTrigram")
@@ -112,5 +111,6 @@ for triplet in trigram:
         trigram_dict[triplet]+=1
 number=1
 for triplet in trigram_dict:
-    print(number,triplet,":",trigram_dict[triplet])
-    number+=1
+    if trigram_dict[triplet]>1:
+        print(number,triplet,":",trigram_dict[triplet])
+        number+=1
