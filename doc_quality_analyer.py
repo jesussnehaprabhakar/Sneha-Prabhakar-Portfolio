@@ -12,13 +12,13 @@ print("Original text:\n",text)
 text=text.lower()
 print("\nLowercase text:\n",text)
 
-# Remove Punctuations from content- spaCy
+# Remove Punctuations and Numbers from content- spaCy
 temp_text=""
 for x in text:
-    if x.isalnum() or x.isspace(): #alnum includes alphabets, numbers & combo of both(ex, KPI9)
+    if x.isalpha() or x.isspace(): #alnum includes alphabets, numbers & combo of both(ex, KPI9)
         temp_text=temp_text+x
 text=temp_text
-print("\nLowercase text without Punctuation:\n",text)
+print("\nContent without Punctuation & Numbers:\n",text)
 
 # Identify Lemmas- NLP spaCy
 doc=nlp(text)
@@ -70,5 +70,27 @@ for unigram in filtered_words:
         unigram_dict[unigram]=1
     else:
         unigram_dict[unigram]+=1
+number=1
 for unigram in unigram_dict:
-    print(unigram,":",unigram_dict[unigram])
+    print(number,unigram,":",unigram_dict[unigram])
+    number+=1
+
+#Bigram
+pairs=[] #create list of pairs
+print("\nNumber of filtered words: ",len(filtered_words))
+print("Number of possible pairs: ",len(filtered_words)-1)
+for i in range(len(filtered_words)-1):
+    pair=filtered_words[i]+" "+filtered_words[i+1]
+    pairs.append(pair)
+    unique_pairs=list(set(pairs))
+bigram_dict={}
+for pair in pairs:
+    if pair not in bigram_dict:
+        bigram_dict[pair]=1
+    else:
+        bigram_dict[pair]+=1
+print("\nBigram\n")
+number=1
+for pair in bigram_dict:
+    print(number,pair,":",bigram_dict[pair])
+    number+=1
