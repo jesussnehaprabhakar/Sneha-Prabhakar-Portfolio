@@ -1,2 +1,119 @@
-The business analyst is analyzing monthly sales data for Jan 2023 and analyzes customer feedback every 7 days. Last quarter, the analyst analyzed 12 process delays and is now analyzing reports for leadership. Strong key performance indicators help the team measure 18% growth. These key performance indicators are reviewed every 30 days, and the same key performance indicators guide planning decisions in January.
-The operations team supports continuous improvement through 4 regular meetings, process checks, and training. Continuous improvement helps reduce waste by 10% and improve quality scores to 92. Managers believe continuous improvement creates better customer experience. The analyst is comparing 5 reports, compared trends in 2022 earlier, and now compares results again. Accurate data analysis and clear communication are important for every analyst.
+Business Analyst responsibilities
+
+1.
+Collaborated with stakeholders to identify business problems, analyze user pain points, and gather requirements through interviews, workshops, and feedback analysis in Agile/Scrum environments
+Analyzed existing application performance, previous releases, and user behavior to define feature enhancements, bug fixes, and process improvements
+Extracted and analyzed data using SQL to support requirement gathering, trend analysis, and decision-making
+Performed data cleaning, transformation, and validation using Python (Pandas, NumPy) and Excel (Pivot Tables, VLOOKUP) to ensure data accuracy and usability
+Conducted detailed data analysis to identify trends, root causes, and actionable insights influencing product and business outcomes
+Defined, tracked, and evaluated key performance indicators (KPIs) such as user engagement, feature adoption rate, conversion rate, defect density, and customer satisfaction (CSAT)
+Designed and developed interactive dashboards and reports using Power BI and Tableau to communicate insights and enable data-driven decision-making
+Created business and functional requirement documents, user stories, and acceptance criteria, along with process flows and system diagrams using UML
+Acted as a liaison between business stakeholders and development teams, managing requirements and tracking progress using Jira within Agile/Scrum framework
+Supported User Acceptance Testing (UAT) by creating test scenarios, validating deliverables against requirements, and ensuring defect resolution
+Monitored post-deployment performance, compared pre- and post-release metrics, and provided continuous support by identifying improvement opportunities and maintaining reports
+
+2. 
+Problem identification & requirement gathering
+Data gathering & querying
+Data cleaning & transformation
+Analysis & insight generation
+Visualization & reporting
+Documentation & Agile facilitation
+Solution proposal & development support
+Testing, go-live & post-delivery support
+Measurement of improvements (KPIs)
+
+Identified business problems and improvement opportunities by analysing user feedback, previous version issues, and client pain points (e.g., feature functionality gaps, page errors, and bug reports), then translated them into clear requirements using Jira backlog management and UML (Use Case & Activity Diagrams).
+• Gathered and queried large datasets using SQL (Joins, CTEs, Window functions) to retrieve relevant transactional and user-behaviour data from the Singapore Airlines database for performance analysis and decision support.
+• Performed data cleaning, ETL processes, and transformation using Python (Pandas, NumPy, Matplotlib, Seaborn) and Power BI (Power Query, DAX) along with Excel (Power Pivot, VBA, Macros) to ensure data accuracy and readiness for analysis.
+• Conducted exploratory data analysis and generated actionable insights by comparing current application performance against previous versions, identifying trends, bottlenecks, and feature enhancement opportunities.
+• Designed and developed interactive dashboards and reports in Power BI (Star Schema modelling, Relationships, Advanced DAX, LOD expressions) and Tableau (Calculated Fields, Actions, Parameters) that reduced report generation time by 50% and enabled stakeholders to visualise KPIs in real time.
+• Documented business requirements, created BRDs, Product Specifications, and User Stories, and facilitated Agile ceremonies (Scrum – Sprint planning, Retrospectives) using Jira to support the full software development lifecycle.
+• Collaborated with development teams to propose solutions, supported front-end (React JS, JavaScript), REST APIs, back-end (Java), and AWS database changes, ensuring business needs were accurately implemented in new application versions or feature updates.
+• Conducted unit testing and User Acceptance Testing (UAT), coordinated go-live activities, and provided post-delivery support to ensure smooth deployment and immediate resolution of any issues.
+• Continuously tracked and measured key performance indicators (KPIs) such as productivity, report turnaround time, training duration, and client satisfaction; delivered 30% improvement in productivity, 25% reduction in training period, and 20% increase in client satisfaction through data-driven process enhancements.
+
+3.
+1. Problem Discovery & Requirement Gathering
+Collaborated with product owners, stakeholders, and end users to identify pain points, feature gaps, and performance issues in existing application versions through structured interviews and feedback analysis
+Translated business problems into clear problem statements and documented functional & non-functional requirements using Confluence and Jira
+Created UML diagrams (Use Case, Activity, Sequence) to model current and proposed system workflows, ensuring alignment between technical teams and business stakeholders
+2. Data Gathering & Validation
+Extracted raw data from relational databases using SQL (joins, subqueries, window functions) to identify usage patterns, error frequencies, and feature adoption rates across application versions
+Consolidated data from multiple sources (databases, CRM exports, logs) into Excel for initial validation, deduplication, and completeness checks
+3. Data Cleaning & Transformation (ETL)
+Built Python (Pandas, NumPy) scripts to automate data cleaning pipelines — handling null values, outliers, type mismatches, and inconsistent formats — reducing manual effort by ~X%
+Performed version-over-version data transformation to create comparable datasets across release cycles, enabling accurate delta analysis
+4. Exploratory Analysis & Insight Generation
+Conducted exploratory data analysis in Python and Excel to surface trends in user behavior, bug recurrence, and feature utilization
+Compared KPIs across application versions to quantify improvement or regression — metrics included bug resolution rate, feature adoption rate, user session duration, error frequency, and task completion rate
+Evaluated multiple analytical interpretations and presented the most statistically supported insight to stakeholders, avoiding confirmation bias
+5. KPI Definition & Measurement
+Key KPIs you should name explicitly on your resume:
+KPI
+What it measures
+Bug Recurrence Rate
+% of bugs reappearing after a fix
+Feature Adoption Rate
+% of users actively using a new/updated feature
+Sprint Velocity
+Story points completed per sprint
+Requirement Stability Index
+% of requirements unchanged after sign-off
+Defect Density
+Defects per module/release
+Mean Time to Resolution (MTTR)
+Avg time to close a reported issue
+User Satisfaction Score (CSAT/NPS)
+Post-release user feedback metric
+6. Visualization & Reporting
+Designed interactive dashboards in Power BI and Tableau to track sprint-level KPIs, version comparison metrics, and defect trends — enabling real-time visibility for product and leadership teams
+Built automated Excel reports for weekly stakeholder updates, consolidating data from Jira sprint boards and SQL query outputs
+7. Agile / SDLC Support
+Participated in Scrum ceremonies (sprint planning, daily standups, retrospectives, backlog grooming) as the BA representative, ensuring user stories were well-defined with clear acceptance criteria
+Managed and prioritized backlog items in Jira, linking requirements to epics and tracking progress through development, QA, and UAT stages
+Performed UAT coordination — created test scenarios based on acceptance criteria and validated that delivered features matched business requirements before release sign-off
+8. Post-Delivery Support
+Monitored post-release KPIs using live Power BI / Tableau dashboards to detect performance drops or unexpected user behavior following deployment
+Gathered post-launch feedback and converted recurring issues into new backlog items, closing the loop between delivery and the next sprint cycle
+Maintained requirement traceability matrices to document what was delivered vs. originally scoped
+
+4. 
+Collaborated in Agile SDLC projects using Scrum methodologies and Jira to facilitate sprint planning, daily stand-ups, and retrospectives, ensuring timely delivery of software enhancements.
+Gathered business requirements through stakeholder interviews and workshops, translating them into UML diagrams (use cases, activity diagrams) for clear documentation and team alignment.
+Queried and extracted data from databases using SQL to identify user pain points, feature usage patterns, and performance issues in previous application versions.
+Performed data cleaning and transformation in Excel and Python (Pandas) to handle missing values, outliers, and inconsistencies, preparing datasets for analysis.
+Analyzed historical data to formulate problem statements, such as low feature adoption (e.g., <20% usage rate) or high bug recurrence (e.g., >15% error logs), comparing against prior versions to prioritize updates like bug fixes or functionality expansions.
+Developed interactive dashboards in Power BI and Tableau to visualize KPIs including user retention rate (target >85%), feature engagement (e.g., session time increase by 30%), defect resolution time (<48 hours), and overall app performance uplift (e.g., 25% faster load times post-update).
+Conducted gap analysis between current and target states, recommending feature enhancements or bug fixes based on insights, such as increasing options in underutilized features to boost user satisfaction scores.
+Supported requirement validation and prioritization in Jira backlogs, tracking progress against KPIs like velocity (story points per sprint >40) and burndown rates.
+Facilitated user acceptance testing (UAT) post-development, using SQL queries and Tableau reports to verify improvements against baseline KPIs from previous versions.
+Provided post-delivery support by monitoring production KPIs via automated Power BI dashboards, generating reports on metrics like Net Promoter Score (NPS >70) and issue resolution efficacy, and recommending iterative refinements in subsequent sprints
+
+5. 
+​Phase 1: Discovery & Requirement Gathering
+​Identified pain points and feature enhancement opportunities by analyzing user feedback and legacy application logs using Excel to categorize bug frequency and severity.
+​Facilitated stakeholder workshops and interviews to translate ambiguous business problems into clear User Stories and functional requirements within Jira.
+​Developed visual process flows and system architectures using UML (Unified Modeling Language) to map the "As-Is" vs. "To-Be" states of the application.
+​Phase 2: Data Extraction & Foundation
+​Queried large-scale relational databases using SQL (Joins, CTEs, Subqueries) to extract relevant historical performance data and user behavior metrics.
+​Performed data profiling and initial validation in SQL to ensure data integrity before transitioning to the analysis phase.
+​Phase 3: Data Cleaning & Transformation
+​Automated data cleaning processes using Python (Pandas/NumPy) to handle missing values, outliers, and data normalization, reducing manual preparation time.
+​Engineered specific data transformations in Power Query to align disparate data sources for cross-functional analysis.
+​Phase 4: Analysis & Insight Generation
+​Conducted exploratory data analysis (EDA) to compare current feature performance against historical benchmarks, identifying specific bottlenecks in the user journey.
+​Modeled multiple "What-If" scenarios to evaluate potential solutions, selecting the most viable update based on projected ROI and technical feasibility.
+​Phase 5: Development & Sprint Management
+​Collaborated with the development team in an Agile/Scrum environment, managing the product backlog and participating in daily stand-ups to ensure alignment with project goals.
+​Translated technical constraints into business-friendly updates, ensuring the final build met the original requirement specifications.
+​Phase 6: Reporting, KPIs & Post-Delivery Support
+​Designed and deployed interactive, real-time dashboards in Tableau and Power BI to track post-launch performance and user adoption rates.
+​Monitored key performance indicators (KPIs) such as Churn Rate, Feature Adoption Rate, Average Handle Time (AHT), and Net Promoter Score (NPS) to measure the success of the update.
+​Provided post-delivery support by analyzing production data to verify bug fixes and identifying areas for the next iteration of the SDLC.
+​Key KPIs to Mention
+​When describing your impact, try to mention these specific metrics:
+​Efficiency: "Reduced manual reporting time by X% using Python automation."
+​Quality: "Decreased post-release bug reports by X% through precise UML mapping and requirement gathering."
+​Engagement: "Increased feature usage by X% as measured by Power BI tracking

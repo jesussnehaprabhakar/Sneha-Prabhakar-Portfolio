@@ -1,6 +1,7 @@
 import spacy
 import nltk
 import pandas as pd
+pd.set_option("display.max_rows",None) 
 nlp=spacy.load("en_core_web_sm")
 
 # Read contents from file in local folder - spaCy
@@ -53,31 +54,34 @@ for lemma in lemma_dict:
     unique_variants=list(set(variants))
     dominant_variant=max(set(variants),key=variants.count)
     table.append([lemma,frequency,unique_variants,dominant_variant])
-df=pd.DataFrame(table,columns=["Lemma","Frequency","Unique Variants","Dominant Variant"])
+sort_lemma=sorted(table,key=lambda l:l[1],reverse=True)
+df=pd.DataFrame(sort_lemma,columns=["Lemma","Frequency","Unique Variants","Dominant Variant"])
 df_filtered=df[df["Frequency"]>1].reset_index(drop=True)
 df_filtered.index=df_filtered.index+1
 print(df_filtered)
 
 #Identify frequently used Phrases
 #Unigram
-print("\nUnigram\n")
+#print("\nUnigram")
+#print("Number of filtered words:",len(filtered_words))
 unigram_dict={}
 for unigram in filtered_words:
     if unigram not in unigram_dict:
         unigram_dict[unigram]=1
     else:
         unigram_dict[unigram]+=1
-number=1
-for unigram in unigram_dict:
-    if unigram_dict[unigram]>1:
-        print(number," ",unigram,":",unigram_dict[unigram])
-        number+=1
+sort_unigram=sorted(unigram_dict.items(),key=lambda u:u[1],reverse=True) 
+#key= needs a function reference, not a static number, so lambda used
+df_unigram=pd.DataFrame(sort_unigram,columns=["Repeated Words","Frequency"])
+df_ug_filtered=df_unigram[df_unigram["Frequency"]>1].reset_index(drop=True)
+df_ug_filtered.index=df_ug_filtered.index+1
+print(df_ug_filtered)
 
 #Bigram
-print("\nBigram")
+#print("\nBigram")
+#print("Number of filtered words:",len(filtered_words))
+#print("Number of possible pairs:",len(filtered_words)-1)
 bigram=[] #create list of pairs
-print("\nNumber of filtered words:",len(filtered_words))
-print("Number of possible pairs:",len(filtered_words)-1)
 for i in range(len(filtered_words)-1):
     pair=filtered_words[i]+" "+filtered_words[i+1]
     bigram.append(pair)
@@ -88,17 +92,17 @@ for pair in bigram:
         bigram_dict[pair]=1
     else:
         bigram_dict[pair]+=1
-number=1
-for pair in bigram_dict:
-    if bigram_dict[pair]>1:
-        print(number," ",pair,":",bigram_dict[pair])
-        number+=1
+sort_bigram=sorted(bigram_dict.items(),key=lambda b:b[1],reverse=True) 
+df_bigram=pd.DataFrame(sort_bigram,columns=["Repeated phrases(2 words)","Frequency"])
+df_bg_filtered=df_bigram[df_bigram["Frequency"]>1].reset_index(drop=True)
+df_bg_filtered.index=df_bg_filtered.index+1
+print(df_bg_filtered)
 
 #Trigram
-print("\nTrigram")
+#print("\nTrigram")
+#print("Number of filtered words:",len(filtered_words))
+#print("Number of possible triplets:",len(filtered_words)-2)
 trigram=[] #create list of 3-words phrase
-print("\nNumber of filtered words:",len(filtered_words))
-print("Number of possible triplets:",len(filtered_words)-2)
 for i in range(len(filtered_words)-4):
     triplet=filtered_words[i]+" "+filtered_words[i+1]+" "+filtered_words[i+2]
     trigram.append(triplet)
@@ -109,8 +113,15 @@ for triplet in trigram:
         trigram_dict[triplet]=1
     else:
         trigram_dict[triplet]+=1
-number=1
-for triplet in trigram_dict:
-    if trigram_dict[triplet]>1:
-        print(number,triplet,":",trigram_dict[triplet])
-        number+=1
+sort_trigram=sorted(trigram_dict.items(),key=lambda t:t[1],reverse=True) 
+df_trigram=pd.DataFrame(sort_trigram,columns=["Repeated phrases(3 words)","Frequency"])
+df_tg_filtered=df_trigram[df_trigram["Frequency"]>1].reset_index(drop=True)
+df_tg_filtered.index=df_tg_filtered.index+1
+print(df_tg_filtered)
+
+#Print output to Excel
+with pd.ExcelWriter("document_analysis.xlsx") as writer:
+    df_filtered.to_excel(writer,sheet_name="Lemma",index=False)
+    df_ug_filtered.to_excel(writer,sheet_name="Unigram",index=False)
+    df_bg_filtered.to_excel(writer,sheet_name="Bigram",index=False)
+    df_tg_filtered.to_excel(writer,sheet_name="Trigram",index=False)
