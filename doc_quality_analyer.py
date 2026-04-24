@@ -5,7 +5,7 @@ pd.set_option("display.max_rows",None)
 nlp=spacy.load("en_core_web_sm")
 
 # Read contents from file in local folder - spaCy
-with open ("input/draft1.txt","r") as file:
+with open ("input/draft1.txt","r",encoding="utf-8") as file:
     text=file.read()
 #print("Original text:\n",text)
 
