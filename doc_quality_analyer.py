@@ -1,6 +1,9 @@
-import spacy
+import enchant
 import nltk
 import pandas as pd
+import spacy
+#from nltk.corpus import words
+#nltk.download("words",quiet=True)
 pd.set_option("display.max_rows",None) 
 nlp=spacy.load("en_core_web_sm")
 
@@ -23,11 +26,11 @@ text=temp_text
 
 # Identify Lemmas- NLP spaCy
 doc=nlp(text)
-words=[] 
+word=[] 
 lemmas=[] 
 for token in doc: 
     if token.text.isalnum():
-        words.append(token.text) 
+        word.append(token.text) 
         lemmas.append(token.lemma_)
 #print("\nOriginal words and their lemmas:\n",list(zip(words,lemmas)))
 
@@ -119,9 +122,31 @@ df_tg_filtered=df_trigram[df_trigram["Frequency"]>1].reset_index(drop=True)
 df_tg_filtered.index=df_tg_filtered.index+1
 print(df_tg_filtered)
 
+#Review words which are not in standard English format
+# english_words=set(words.words())
+# review_dict={}
+# for word,lemma in zip(filtered_words,filtered_lemmas):
+#     if lemma.lower() not in english_words:
+#         review_dict[word.lower()]=review_dict.get(word.lower(),0)+1
+# sort_review=sorted(review_dict.items(),key=lambda r:r[1],reverse=True)
+# df_review=pd.DataFrame(sort_review,columns=["Non-Dictionary words","Frequency"])
+# df_review.index=df_review.index+1
+# print(df_review)
+
+d=enchant.Dict("en_US")
+review_dict={}
+for word,lemma in zip(filtered_words,filtered_lemmas):
+    if not d.check(lemma.lower()):
+        review_dict[word.lower()]=review_dict.get(word.lower(),0)+1
+sort_review=sorted(review_dict.items(),key=lambda r:r[1],reverse=True)
+df_review=pd.DataFrame(sort_review,columns=["Non-Dictionary words","Frequency"])
+df_review.index=df_review.index+1
+print(df_review)
+
 #Print output to Excel
 with pd.ExcelWriter("document_analysis.xlsx") as writer:
     df_filtered.to_excel(writer,sheet_name="Lemma",index=False)
     df_ug_filtered.to_excel(writer,sheet_name="Unigram",index=False)
     df_bg_filtered.to_excel(writer,sheet_name="Bigram",index=False)
     df_tg_filtered.to_excel(writer,sheet_name="Trigram",index=False)
+    df_review.to_excel(writer,sheet_name="Review Needed",index=False)
