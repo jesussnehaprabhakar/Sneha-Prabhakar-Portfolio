@@ -1,0 +1,123 @@
+Canteen Ordering System
+Business Requirements Document
+Simplilearn Project-1 By
+R. Goutham Ravi Kumar
+Glossary
+1. Introduction
+2. Stakeholders
+a. Stakeholder Matrix
+3. Problem Statement Overview.
+4. Business objectives of Canteen Ordering System
+5. Expected Benefits
+6. 1. Current system process map
+2. Proposed system process map
+7. Scope of New System
+a. Use case Diagram for Canteen Ordering System
+b. Context diagram for Proposed system
+8. In-Scope and Out-of-Scope Requirements
+9. Activity Diagram for the system
+10. ER diagram for the System
+11. Business Requirements
+a. Functional Requirements
+b. Non-Functional Requirements
+12. Environment
+13. Mock Screens for the features.
+1. Introduction Unilever is a British-Dutch MNC FMCG company, headquartered in London, England. Unilever is one of the oldest FMCG companies, and its products are available in around 190 countries. In its UK offices, Unilever had around 1500 employees which were spread across 12 floors. They had 2 canteens to cater to these 1500 employees. Each canteen could seat around 150 employees at a time.
+2. Problem Statement Overview. Management calculated that it took around 60 minutes for employees to go and come back from lunch. Almost 30-35 minutes were wasted in waiting in a queue to collect their food and get a table to sit and eat. However, the time spent eating was barely 10-15 minutes. The remaining 10 minutes were spent reaching and coming back from the canteen using the elevators. Employees don’t always get their choice of food they want because the canteen runs out of certain items. The canteen wastes a significant quantity of food by throwing away what is not purchased.  Solution Objective: Employees have requested a system that would permit a canteen user to order meals online, to be delivered to their work location at a specified time and date.
+3. Stakeholders
+Keep satisfied Manage closely Monitor Keep Informed Management Project Manager Developers Employees HR manager Delivery fleet Testers Canteen Manager Business Analyst Chefs Operational Staff
+3.1 StakeHolderMatrix
+Manage Closely
+Keep Satisfied
+Monitor
+Informed
+Power/InfluencePower/InfluencePower/InfluencePower/InfluencePower/InfluencePower/InfluencePower/Influence
+Impact/Interest LowLowLow
+High
+High
+Management
+Employees
+Project Manager
+Business Analyst
+HR
+Chefs
+Canteen Manager
+Delivery Fleet
+Operational Staff
+Technical Team
+4. Business objectives of Canteen Ordering System
+a. Primary Objective is to reduce canteen food wastage by a minimum of 30% within 6 months following first release.
+Scale: Value of food thrown away each month by examining the canteen inventory.
+Wastage value - 25%
+Aim for- <15%
+b. Reduce canteen operating costs by 15% within 12 months.
+c. Increase average effective work time by 30 minutes per employee per day, within 3 months.
+d. By making the ordering process automated and by delivering the food to the user's workstation, the canteen should be able to operate with lesser manpower.
+5. Expected Benefits
+a. Time Saving to those employees who use the service.
+b. Increased chances of getting their preferred food.
+c. Improving the Employee’s quality of work life and productivity.
+d. Reduced food wastage.
+e. Reduction in cost.
+6.1 Current system Process Map
+*Figure 6.1. indicates clearly that wait time is more than eating and walking to workstation combined.
+6.2 Proposed System Process Map
+
+7. Scope of New System
+a. Context diagram for Proposed System (Level-0 Diagram)
+Figure 7.a: Shows how different stakeholders will interact with the proposed system
+8. In-Scope and Out-of-Scope Requirements
+8.1 In-Scope Requirements:
+Functional Requirements Registration/Login
+1. Employee should create a profile in the system to access. 2. Employee ID, Name, Mobile Number, Password should provide to get registered.
+3. Password should be unique with 8-12 characters contains- min 1 Capital Letter, 1 or more Lower case Letters, Min 1 special keys, One or more Numeric digits. 4. Should enable auto debit from payroll in payments section in-order to place the orders.
+5. Log in to home page to access the menu of list of dishes.
+Menu Page 1. Employee should be able to access Canteen Ordering System via a web URL.
+2. Today’s list of dishes and Menu of items should be visible to all the users with no log in required. 3. Items in Menu page contains a photo of item, Name, Price, display’s Quantity with + & - symbols, Description, Like button and count of likes.
+4. To place the Order, Employee should login using employee ID and Password created during registration process. 5. If the user no registered, then webpage should redirect to Registration/Login page so that new user will provide required details and proceed to create a profile in system.
+5. Employee can add items to My Cart available at top right corner of the web page. 6. A functionality to like and share the item available on the webpage via a web link.
+7. Menu page should have My Orders section in My Account section to view past month orders and total expenditure. 8. Should have a picture of Most popular dishes with photos inside at the top of the webpage.
+9. Menu should be separated by into Main course, Fast foods, Snacks, Drinks, Desserts.
+Checkout
+1. Once the list of items are added to My Cart, checkout button appears. 2. Displays the name of the items added in My Cart with small photo & quantity.
+3. Price of each item and Detailed price of the order is calculated & displayed it below as Meal Value. 4. User should be able to add/delete the order or Increase/reduce the quantity of each item as he/she pleases at My Cart itself.
+5. Once final order is created user can proceed with checkout button and waits until the status of the Order is Confirmed or not Confirmed. 6. User should be able to place orders before 11AM for the day, post that checkout option shall be disabled for main course orders.
+7. A feedback text box should be have once the order is delivered to user workstation.
+Payments 1. Once User checked out, System will initiate the transaction to Payroll System to process.
+2. Payroll System interacts with Canteen Ordering system to validate the user. 2. If user is not validated (New user, Not enrolled in auto-debit option, Employee left company, terminated), it will directs user to enroll in the auto debit from payroll feature.
+3. Once that validation is done, it will deduct from salary of the employee and transfer funds to vendor account.
+Canteen Manager Requirements
+1. Canteen Manager should have dedicated System/Laptop to access the backend of webpage and access to Canteen Server, to track orders, data storage and create reports. 2. CM must have Administrator access for the web page to edit and update the Menu for the day.
+3. Should have view only access to Canteen server to obtain the order inventory of dishes and takes the copy of it. 4. Manager must login using his Employee ID and Password to get admin access. If more than one canteen manager exists then only one should be able to write/update the menu at once.
+4. Canteen manger should be able to send the list of orders to be delivered to Delivery agents.
+System requirements 1. Web page should be developed in Java because of easy maintenance.
+2. Should be able to generate bill reports, order reports, monthly expenditure and send them to each user. 3. Servers shall create auto-generated reports of sales, earnings, order predictions, most ordered dishes, Feedback reports and No of employees utilizing the system report.
+4. Delivery Agents should receive the list of orders to be delivered in real time basis without delay. 4. Maintenance activities should be done at nights only without interference during day time.
+5. Servers should compile all the real-time information on orders, activities, Transactions, deliveries and feedback.
+8.2 Out-Of-Scope Requirements:
+1. Automated Payment bill reports should be generated and sent to Employee via mobile text message and Email receipts. 2. Real time status of the order sent vi mobile text message and Email receipts.
+3. Refund of order which aren’t received or cancellations. 4. Veg and Non-Veg and All buttons should be there to display the varieties.
+5. Breakfast isn’t included in Canteen Ordering System. 6. Food calorific dietary values for the item should be mentioned.
+7. Delivery is not included outside of workstation. 8. Should be able to access to webpage via mobile or tablet.
+9. Automated food recommendations to user. 10. Include comments. Reviews and suggestions from the feedback.
+9.Activity Diagram for the system
+Activity-1: Placing the Order
+Figure 9.1: Indicates the process of performing the activity
+10. ER Diagram
+Figure10. Entity Relationship diagram displays the relationship of entity sets stored in database.
+11.Business Requirements
+11.1 Functional Requirements
+1. Canteen Ordering System should be available before 11 AM. 2. Screens and data fields should be self-explanatory.
+3. Payroll system shall calculate the total number of dishes ordered by each employee 4. Employee shall be provided up-to-date menu when opens the web page.
+5. Canteen manager should be able to view all the orders placed by the employees. 6.Canteen Manager should be able to request delivery boy and he shall close the order once it Is delivered.
+7.Customer should be able to submit feedback once order is closed.
+11.2 Non-Functional Requirements
+1. Canteen Ordering System should be scalable to 1500 employees ordering. 2.Web Page should be light and performance should be fast.
+3. Payroll system should be up and running at all times before 11 AM and interact with other systems without issues. 4. Canteen servers should be able to display up-to-date menu without any latency.
+5. Website should increase the quality of lunch time for the employees
+12. Environment
+Creating and maintaining the program should be in Java.
+13. Mock Screens for the feature
+Wireframe-1: Home/ Landing Page
+Wireframe-2: Today’s Menu Page
+Wireframe-3: Item Details Page
